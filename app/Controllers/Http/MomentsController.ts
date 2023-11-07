@@ -1,10 +1,8 @@
-import { v4 as uuidv4 } from 'uuid'
-
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-
+import Application from '@ioc:Adonis/Core/Application'
 import Moment from 'App/Models/Moment'
 
-import Application from '@ioc:Adonis/Core/Application'
+import { v4 as uuidv4 } from 'uuid'
 
 export default class MomentsController {
   private validationOptions = {
@@ -38,7 +36,7 @@ export default class MomentsController {
   }
 
   public async index() {
-    const moments = await Moment.all()
+    const moments = await Moment.query().preload('comments')
 
     return {
       data: moments,
@@ -47,6 +45,8 @@ export default class MomentsController {
 
   public async show({ params }: HttpContextContract) {
     const moment = await Moment.findOrFail(params.id)
+
+    await moment.load('comments')
 
     return {
       data: moment,
@@ -75,7 +75,7 @@ export default class MomentsController {
       const image = request.file('image', this.validationOptions)
 
       if (image) {
-        const imageName = `${uuidv4()}.${image.extname}`
+        const imageName = `${uuidv4()}.${image!.extname}`
 
         await image.move(Application.tmpPath('uploads'), {
           name: imageName,
