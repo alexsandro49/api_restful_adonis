@@ -2,6 +2,7 @@
 Projeto de api RESTFUL, do professor [Matheus Battisti](https://github.com/matheusbattisti/), utilizada no projeto [Moments](https://github.com/alexsandro49/moments_angular). Feito com o framework AdonisJS.
 
 ## Como rodar na sua máquina
+### Compilando manualmente
 1. Clone o repositório da api em sua máquina:
    ```
    git clone https://github.com/alexsandro49/api_restful_adonis.git
@@ -22,6 +23,17 @@ Projeto de api RESTFUL, do professor [Matheus Battisti](https://github.com/mathe
    ```
    node ace serve
    ```
+
+### Usando imagem Docker
+1. Baixe a imagem com esse comando:
+   ```
+   docker pull alexsandro49/api_restful_adonis
+   ```
+2. Use esse comando para executar:
+   ```
+   docker run -p 3333:3333 -d alexsandro49/api_restful_adonis
+   ```
+
 
 #### A api ficará disponível no http://localhost:3333/api/moments
 
