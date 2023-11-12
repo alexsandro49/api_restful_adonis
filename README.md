@@ -1,5 +1,5 @@
 # Api RESTFUL
-Projeto de api RESTFUL, do professor Matheus Battisti, utilizada no projeto Moments. Feito com o framework AdonisJS.
+Projeto de api RESTFUL, do professor [Matheus Battisti](https://github.com/matheusbattisti/), utilizada no projeto [Moments](https://github.com/alexsandro49/moments_angular). Feito com o framework AdonisJS.
 
 ## Como rodar na sua máquina
 1. Clone o repositório da api em sua máquina:
